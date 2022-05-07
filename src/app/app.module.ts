@@ -6,19 +6,30 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
 import { HomeComponent } from './navegacao/home/home.component';
 import { FooterComponent } from './navegacao/footer/footer.component';
+import { SobreComponent } from './navegacao/sobre/sobre.component';
+import { ContatoComponent } from './navegacao/contato/contato.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { ListarProdutoComponent } from './navegacao/produto/listar-produto/listar-produto.component';
+import { CadastrarProdutoComponent } from './navegacao/produto/cadastrar-produto/cadastrar-produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    SobreComponent,
+    ContatoComponent,
+    ListarProdutoComponent,
+    CadastrarProdutoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: APP_BASE_HREF, useValue: '/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
