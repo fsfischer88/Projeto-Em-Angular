@@ -11,6 +11,8 @@ import { ContatoComponent } from './navegacao/contato/contato.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { ListarProdutoComponent } from './navegacao/produto/listar-produto/listar-produto.component';
 import { CadastrarProdutoComponent } from './navegacao/produto/cadastrar-produto/cadastrar-produto.component';
+import { ProdutoService } from './service/produto.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,12 @@ import { CadastrarProdutoComponent } from './navegacao/produto/cadastrar-produto
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
+    
   ],
   providers: [
+    ProdutoService,
     {provide: APP_BASE_HREF, useValue: '/'}
   ],
   bootstrap: [AppComponent]

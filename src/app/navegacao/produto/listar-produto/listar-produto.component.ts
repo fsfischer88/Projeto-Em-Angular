@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/produto';
+import { ProdutoService } from 'src/app/service/produto.service';
 
 @Component({
   selector: 'app-listar-produto',
@@ -8,10 +9,19 @@ import { Produto } from 'src/app/models/produto';
 })
 export class ListarProdutoComponent implements OnInit {
 
-  public produtos : Produto[];
+  constructor(private produtoService: ProdutoService){}
 
-  ngOnInit() {
-    
+  public produtos : Produto[] | any;
+
+  ngOnInit(): void {
+    this.produtoService.obterProdutos()
+      .subscribe(
+        produtos => {
+          this.produtos = produtos
+        },
+        error => console.log('Erro ao obter a lista de produtos => ' + error)
+
+      )
   }
 
 
